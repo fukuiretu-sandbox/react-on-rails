@@ -8,7 +8,7 @@ export default class Counter extends Component {
 
   componentWillMount() {
     //SSRでもここは呼ばれる
-    console.log('componentWillMount')
+    console.log('componentWillMountaaa')
   }
 
   render() {

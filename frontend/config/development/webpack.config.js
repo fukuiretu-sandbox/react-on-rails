@@ -5,7 +5,7 @@ const glob = require("glob");
 module.exports = {
   entry: glob.sync("./frontend/js/*.js"),
   output: {
-    path: path.join(__dirname, 'public/dist'),
+    path: path.join(__dirname, '../../../app/assets/javascripts'),
     filename: '[name].js',  // このままならmain.jsが作成される
     publicPath: 'http://localhost:4000/',
     hot: true
