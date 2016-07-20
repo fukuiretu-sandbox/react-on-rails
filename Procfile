@@ -1,2 +1,2 @@
 web: bin/rails s
-webpac-dev: npm run dev
+webpac-dev: cd frontend && npm run dev

@@ -7,6 +7,7 @@
     "test": "test"
   },
   "dependencies": {
+    "lodash": "^4.13.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
@@ -26,7 +27,7 @@
     "webpack-manifest-plugin": "^1.0.1"
   },
   "scripts": {
-    "dev": "NODE_ENV=development webpack --config frontend/config/development/webpack.config.js --progress --colors --watch",
+    "dev": "NODE_ENV=development webpack --config config/development/webpack.config.js --progress --colors --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

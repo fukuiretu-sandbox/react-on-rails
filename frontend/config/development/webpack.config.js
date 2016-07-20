@@ -1,11 +1,22 @@
+const path = require('path');
+const glob = require("glob");
+const _ = require('lodash');
+
+const projectPath = path.join(__dirname, '../../../');
+const jsPath = path.join(projectPath, 'frontend/src/javascripts');
+const outputPath = path.join(projectPath, 'app/assets/javascripts/components');
+
+entries = {};
+_.each(glob.sync(jsPath + '/components/*.jsx'), (v) => {
+  entries[path.basename(v, path.extname(v))] = v
+});
+
 module.exports = {
   cache: true,
   debug: true,
-  entry: {
-    Greet: "./frontend/js/components/greet.jsx"
-  },
+  entry: entries,
   output: {
-    path: './app/assets/javascripts/components',
+    path: outputPath,
     filename: '[name].js'
   },
   devtool: 'inline-source-map',
