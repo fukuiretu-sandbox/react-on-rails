@@ -1,7 +1,6 @@
 const path = require('path');
 const glob = require('glob');
 const _ = require('lodash');
-
 const projectPath = path.join(__dirname, '../../../');
 const frontendPath = path.join(projectPath, 'frontend');
 const jsPath = path.join(frontendPath, 'src/javascripts');
@@ -11,8 +10,6 @@ const entries = {};
 _.each(glob.sync(`${jsPath}/components/*.jsx`), (v) => {
   entries[path.basename(v, path.extname(v))] = v;
 });
-
-console.log(entries);
 
 module.exports = {
   cache: true,
