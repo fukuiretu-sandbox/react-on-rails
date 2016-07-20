@@ -7,10 +7,12 @@ const frontendPath = path.join(projectPath, 'frontend');
 const jsPath = path.join(frontendPath, 'src/javascripts');
 const outputPath = path.join(projectPath, 'app/assets/javascripts/components');
 
-entries = {};
-_.each(glob.sync(jsPath + '/components/*.jsx'), (v) => {
-  entries[path.basename(v, path.extname(v))] = v
+const entries = {};
+_.each(glob.sync(`${jsPath}/components/*.jsx`), (v) => {
+  entries[path.basename(v, path.extname(v))] = v;
 });
+
+console.log(entries);
 
 module.exports = {
   cache: true,
@@ -18,7 +20,7 @@ module.exports = {
   entry: entries,
   output: {
     path: outputPath,
-    filename: '[name].js'
+    filename: '[name].js',
   },
   devtool: 'inline-source-map',
   module: {
@@ -28,20 +30,20 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
-        }
+          presets: ['es2015', 'react'],
+        },
       },
       {
         test: /\.js[x]?$/,
         loader: 'eslint-loader',
         exclude: /node_modules/,
-      }
-    ]
+      },
+    ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
   eslint: {
-    configFile: frontendPath + '/.eslintrc'
-  }
+    configFile: `${frontendPath}/.eslintrc`,
+  },
 };
