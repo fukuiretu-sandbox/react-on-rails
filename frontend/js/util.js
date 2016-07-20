@@ -1,5 +1,5 @@
-class Util {
+export default class Util {
   static hoge() {
-    console.log("hogehoge");
+    console.log("bbbhogehoge");
   }
 }

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react'
+import Util from '../util';
 
-class Greet extends React.Component {
+class Greet extends Component {
   constructor(props){
     super(props);
     this.state = {};
+    Util.hoge();
   }
 
   render() {
     return (
-      <div>Hello, {this.props.name}.</div>
+      <div>
+        Hello, {this.props.name}.
+      </div>
     );
   }
 }
