@@ -3,7 +3,8 @@ const glob = require('glob');
 const _ = require('lodash');
 
 const projectPath = path.join(__dirname, '../../../');
-const jsPath = path.join(projectPath, 'frontend/src/javascripts');
+const frontendPath = path.join(projectPath, 'frontend');
+const jsPath = path.join(frontendPath, 'src/javascripts');
 const outputPath = path.join(projectPath, 'app/assets/javascripts/components');
 
 entries = {};
@@ -29,10 +30,18 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.js[x]?$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
       }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
+  },
+  eslint: {
+    configFile: frontendPath + '/.eslintrc'
   }
 };
