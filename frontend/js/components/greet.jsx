@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Greet extends React.Component {
+class Greet extends React.Component {
   constructor(props){
     super(props);
     this.state = {};
@@ -12,3 +12,6 @@ export class Greet extends React.Component {
     );
   }
 }
+
+global.T = global.T || {};
+T.Greet = Greet;
