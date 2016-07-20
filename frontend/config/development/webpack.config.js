@@ -3,9 +3,11 @@ const webpack = require('webpack');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./frontend/js/*.js"),
+  entry: {
+    components: "./frontend/js/components.js"
+  },
   output: {
-    path: path.join(__dirname, '../../../app/assets/javascripts'),
+    path: path.join(__dirname, '../../../app/assets/javascripts/'),
     filename: '[name].js',  // このままならmain.jsが作成される
     publicPath: 'http://localhost:4000/',
     hot: true
@@ -24,7 +26,7 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.json']
+    extensions: ['', '.js', '.jsx']
   },
   devServer: {
     contentBase: '../public/dist',
