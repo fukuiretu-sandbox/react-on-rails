@@ -1,10 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Util from '../util';
 
 class Greet extends Component {
-  constructor(props){
+  static get propTypes() {
+    return { name: React.PropTypes.string };
+  }
+
+  static get defaultProps() {
+    return { name: 'Hogeo' };
+  }
+
+  constructor(props) {
     super(props);
     this.state = {};
+    // test
     Util.hoge();
   }
 
@@ -18,4 +27,4 @@ class Greet extends Component {
 }
 
 global.T = global.T || {};
-T.Greet = Greet;
+global.T.Greet = Greet;

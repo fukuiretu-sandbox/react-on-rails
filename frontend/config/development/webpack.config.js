@@ -1,5 +1,5 @@
 const path = require('path');
-const glob = require("glob");
+const glob = require('glob');
 const _ = require('lodash');
 
 const projectPath = path.join(__dirname, '../../../');
