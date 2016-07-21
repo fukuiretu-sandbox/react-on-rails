@@ -120,5 +120,5 @@ Temporary Items
 .apdisk
 
 
-app/assets/javascripts/components
+app/assets/javascripts/components.js
 app/assets/stylesheets/style.css

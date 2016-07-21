@@ -7,7 +7,7 @@ class Greet extends Component {
   }
 
   static get defaultProps() {
-    return { name: 'Hogeo' };
+    return { name: 'Hogeooo' };
   }
 
   constructor(props) {
