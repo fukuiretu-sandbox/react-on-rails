@@ -1,26 +1,22 @@
 const path = require('path');
 const glob = require('glob');
-const _ = require('lodash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const projectPath = path.join(__dirname, '../../../');
 const frontendPath = path.join(projectPath, 'frontend');
 const jsPath = path.join(frontendPath, 'src/javascripts');
-const jsOutputPath = path.join(projectPath, 'app/assets/javascripts/components');
+const jsOutputPath = path.join(projectPath, 'app/assets/javascripts');
 const stylePath = path.join(frontendPath, 'src/stylesheets');
 const styleOutputPath = path.join(projectPath, 'app/assets/stylesheets');
-const jsEntries = {};
-_.each(glob.sync(`${jsPath}/components/*.jsx`), (v) => {
-  jsEntries[path.basename(v, path.extname(v))] = v;
-});
 
 const jsConfig = {
   cache: true,
   debug: true,
-  entry: jsEntries,
+  stats: { colors: true },
+  entry: glob.sync(`${jsPath}/**/*.js`),
   output: {
     path: jsOutputPath,
-    filename: '[name].js',
+    filename: 'components.js',
   },
   devtool: 'inline-source-map',
   module: {
